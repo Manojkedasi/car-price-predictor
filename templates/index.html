@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+        body {
+        background-image: url('https://img.freepik.com/free-vector/yellow-sedan-car-yellow-background-vector_53876-67335.jpg?w=2000');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="container-wrapper">
+        <form action="{{ url_for('predict')}}" method="post">
+        <center>
+            <h2  class="text_center" style="color:black;"><u>Car Price Predictor</u></h2>
+            <h3 style="color:black; text-align: center;">Year </h3>
+            <input id="first" name="Year" type="number" min="1990" max="2021" stepsize="1" autocomplete="off">
+            <h3 style="color:black; text-align: center;">What is the Showroom Price?(In lakhs)</h3><input id="second" name="Present_Price" required="required" autocomplete="off">
+            <h3 style="color:black; text-align: center;">How Many Kilometers Drived?</h3><input id="third" name="Kms_Driven" required="required" autocomplete="off">
+            <h3 style="color:black; text-align: center;">How much owners previously had the car ?</h3>
+                <input id="second" name="Owner" type="number" min="0" max="4" stepsize="1" autocomplete="off">
+           
+            <h3 style="color:black; text-align: center;">What is the Fuel type?</h3><select name="Fuel_Type_Petrol" id="fuel" required="required" autocomplete="off">
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            </select>
+            <h3 style="color:black; text-align: center;">Are you A Dealer or Individual</h3><select name="Seller_Type_Individual" id="resea" required="required" autocomplete="off">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+
+            <h3 style="color:black; text-align: center;">Transmission type</h3><select name="Transmission_Mannual" id="research" required="required" autocomplete="off">
+                <option value="Mannual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+            </select>
+            <br>
+            <div class="submit-button" >
+                <button id="sub" type="submit ">Calculate the Selling Price</button>
+            </div>
+
+        </form>
+
+    </div>
+    <br>
+    <center
+    <h3 class="text_center">{{ prediction_text }} <h3></h3>
+    </center>
+</div>
+</center>
+</body>
+
+</html>
